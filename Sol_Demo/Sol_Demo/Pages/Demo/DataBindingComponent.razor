@@ -18,6 +18,16 @@
             <h3>@Message</h3>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label for="txtDateFormat">Date Format</label>
+                <input type="date" @bind="StartDate" @bind:format="yyyy-MM-dd" class="form-control">
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-12">
             <AttributeDataBindingComponent Message="@Message"></AttributeDataBindingComponent>
@@ -28,4 +38,6 @@
 @code {
 
     private String Message { get; set; } = "Hello Blazor";
+
+    public DateTime StartDate { get; set; } = new DateTime(2020, 1, 1);
 }
