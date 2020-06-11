@@ -1,0 +1,31 @@
+﻿<h3>Data Binding Component Demo</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <input type="text" @bind-value="Message" class="form-control" />
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <input type="text" @bind-value="Message" @bind-value:event="oninput" class="form-control" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>@Message</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <AttributeDataBindingComponent Message="@Message"></AttributeDataBindingComponent>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private String Message { get; set; } = "Hello Blazor";
+}

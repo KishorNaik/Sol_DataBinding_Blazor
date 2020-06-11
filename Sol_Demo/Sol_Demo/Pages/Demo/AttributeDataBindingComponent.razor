@@ -1,0 +1,41 @@
+﻿<h3>Attribute DataBinding Component Demo</h3>
+
+<style>
+    .myColor {
+        color: red;
+    }
+
+    .myColorChange {
+        color: orange;
+    }
+</style>
+
+@*class attribute*@
+
+<p @bind-class="@Css" @bind-class:event="onchange">
+    @Message
+</p>
+
+<p @bind-style="@Style" @bind-style:event="onchange">
+    @Message
+</p>
+
+<button class="btn btn-dark" @onclick="OnChangeColor">Change Color</button>
+
+@code {
+
+    [Parameter]
+    public String Message { get; set; }
+
+    private String Css { get; set; } = "myColor";
+
+    private String Style { get; set; } = "background-color:yellow";
+
+    private void OnChangeColor()
+    {
+        Css = "myColorChange";
+
+        Style = "background-color:black";
+    }
+
+}
